@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="/assets/img/logo.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.2.1/hamburgers.css">
+        <link rel="stylesheet" href="/css/catalogo.css">
+        <link rel="stylesheet" href="/css/index.css"> 
+        <title>Catalogo</title>
+    </head>
+    <body>
+        <header class="header">
+            <nav sec:authorize="!isAuthenticated()" th:insert="ThHtmls/partesComunes :: menuNavUsuario"></nav>
+            <nav sec:authorize="isAuthenticated()" th:insert="ThHtmls/partesComunesR :: menuNavUsuario"></nav>
+        </header>
+
+            <section class="catalogo">
+
+                <div class="containerCards">
+                    <div class="contenedor">
+                        <h1 class="encabezado">Catalogo</h1>
+
+
+                        <div class="grid">
+
+                            <div class="cardC" th:each="producto : ${listaProductos}">
+
+                                <div class="info-card">
+                                    <h4 th:text="${producto.NombreProducto}"></h4>
+                                    <p th:text="${producto.marcaProducto.nombreMarca}"></p>
+                                    <img 
+                                        th:src="@{/foto/mostrarFoto/} + ${producto.getFotoProducto().iterator().next().getId()}" 
+                                        th:alt="${producto.NombreProducto}" 
+                                        class="imgC"
+                                    >
+                                    <p class="precio" th:text="${producto.PrecioProducto}"></p>
+                                    <a class="btnC" th:href="@{/usuarioLog/listarProductosCompra/}+${producto.IdProducto}" >Agregar Al Carrito</a>
+                                    <a class="btnC" th:href="@{/producto/descripcionproducto/}+${producto.IdProducto}">Ver</a>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+
+
+            <footer th:insert="ThHtmls/partesComunes::menuFooterUsuario"></footer>
+
+
+            <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
+            <script src="https://kit.fontawesome.com/c3d241543d.js" crossorigin="anonymous"></script>
+            <script src="js/catalogo.js"></script>
+    </body>
+
+</html>

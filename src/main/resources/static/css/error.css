@@ -1,0 +1,46 @@
+main {
+    padding-top: 10rem;
+}
+
+.containerError {  
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+.contenedorIMG {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}   
+.contenedorIMG img{
+    object-fit: cover;
+}
+.contenedorLetras{
+    grid-area:tex; 
+}
+
+.imagenError {
+    margin: 0;
+    width: 100%;
+    object-fit: cover;
+    max-width: 300px;
+    height: 100%;
+}
+
+.btnD {
+    padding: 1rem 2.5rem;
+    background-color: var(--second-color);
+    outline: none;
+    border: none;
+    color: #fff;
+    transition: all .3s linear;
+    border-radius: .2rem;
+    font-family: var(--main-font);
+    font-size: 1.5rem;
+}
+.btnD:hover {
+    background-color: rgb(204, 158, 89);
+    color: black;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.2.1/hamburgers.css">
+        <link href="dist/hamburgers.css" rel="stylesheet">
+         <script src="/js/menu-hamburguesa.js" defer></script>
+    </head>
+    <body>
+        <!-- menu que se muestra en el index comun / login / cualquier vista Usuario-->
+        <nav class="nav" th:fragment="menuNavUsuario">
+            <a href="/inicio"><img class="logo" src="/assets/img/logo2.png" alt="logo"></a>
+            <div class="container-title"></div>
+            <div class="title">
+                <a href="/inicio"><h1>Music Town</h1></a>
+            </div>
+            <button class="nav-toggle hamburger hamburger--collapse" type="button" aria-label="Abrir menú">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+            <ul class="nav-menu">
+                <li class="nav-menu-item"><a href="/iniciarSesion" class="nav-menu-link nav-link">Iniciar Sesión</a></li>
+                <li class="nav-menu-item"><a href="/producto/catalogo" class="nav-menu-link nav-link">Catalogo</a></li>            
+                <li class="nav-menu-item"><a href="/inicio#contacto" class="nav-menu-link nav-link">Contacto</a></li>
+            </ul>
+        </nav>
+        <!-- Seccion de administracion / parte del menu Administracion-->
+        <aside class="sidebar" th:fragment="menuAdmin">
+            <div class="contenedor-sidebar">
+                <a th:href="@{/}"><h1>Music Town</h1></a>
+
+                <div class="cerrar-menu">
+                    <img src="assets/img/cerrar.svg" alt="img cerrar-menu" id="cerrar-menu">
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="/admin">Instrumentos</a>
+                <a href="/admin/usuarios">Usuarios</a>
+            </nav>
+
+            <div class="cerrar-sesion-mobile">
+                <a href="/logout" class="cerrar-sesion">Cerrar Sesión</a>
+            </div>
+        </aside>    
+         <!-- footer que se muestra en el index comun / login / cualquier vista Usuario-->
+         <footer th:fragment="menuFooterUsuario">
+            <div class="main-footer">
+                <div class="footersection columns">
+                    <div class="logo">
+                        <a href="/inicio"><img class="logo" src="/assets/img/logo2.png" alt="logo"></a>
+                    </div>
+                    <div class="footertxt">
+                        <p>Somos un E-Commerce de instrumentos en donde puedes adquirir una amplia variedad de intrumentos y accesorios.</p>
+                    </div>
+                </div>
+                <div class="footerseccion">
+                    <a href="inicio" class="footerlink">Home</a>
+                    <a href="/catalogo" class="footerlink">Catalogo</a>
+                    <a href="/Usuario/ModificarUsuario" class="footerlink">Perfíl</a>
+                </div>
+                <div class="footersection">
+                    <div class="footertitle">
+                        <h4 class="">Siguenos</42>
+                    </div>
+                    <div class="enlaces">
+                        <a href="#">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <p class="copy">© Music Town. Todos los derechos reservados 2022</p>
+        </footer>
+        <script src="https://kit.fontawesome.com/c3d241543d.js" crossorigin="anonymous"></script>
+    </body>
+</html>
+

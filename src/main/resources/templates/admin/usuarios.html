@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.2.1/hamburgers.css">
+    <link href="dist/hamburgers.css" rel="stylesheet">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" defer></script>
+    <script src="/js/alertas.js" defer></script>
+    <link rel="stylesheet" href="/css/admin.css">
+   
+
+    <title>Administración</title>
+</head>
+<body>
+    <div class="dashboard">
+        
+        <aside th:insert="ThHtmls/partesComunes :: menuAdmin">
+     
+            <div class="cerrar-sesion-mobile">
+                <a href="/logout" class="cerrar-sesion">Cerrar Sesión</a>
+            </div>
+        </aside>    
+    
+        <div class="principal">
+            <div class="barra-mobile">
+                <h1>Music Town</h1>
+                <div class="menu">
+                    <img src="/assets/img/menu.svg" alt="img menu" id="mobile-menu">
+                </div>
+            </div>
+            
+            <div class="barra">
+                <p>Hola: <span>Admin </span></p>
+            
+                <a href="/logout" class="cerrar-sesion">Cerrar Sesión</a>
+            </div>
+    
+            <div class="contenido">
+                <h2 class="nombre-pagina">Administración Usuarios</h2>
+
+                <table class="usuarios">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+            
+                    <tbody> <!-- Mostrar Resultados  -->
+                        <tr th:each="usuario : ${listaUsuarios}">
+                            <td th:text="${usuario.getId()}"></td>
+                            <td th:text="${usuario.getNombre()}">Juan</td>
+                            <td th:text="${usuario.getMail()}">juan@guitar.com</td>
+                            <td>
+                                <a th:href="@{/admin/eliminar/}+${usuario.getId()}" class="btn elim">Eliminar</a>
+                                <a th:href="@{/admin/hacerAdmin/}+${usuario.getId()}" class="btn act">Hacer admin</a>
+                            </td>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/dashboard.js"></script>
+</body>
+</html>
